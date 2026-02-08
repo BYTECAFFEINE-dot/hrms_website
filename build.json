@@ -1,0 +1,8 @@
+# Vercel Build & Deployment Configuration
+{
+  "buildCommand": "pip install -r requirements.txt",
+  "outputDirectory": ".",
+  "framework": "fastapi",
+  "nodeVersion": "20.x",
+  "pythonVersion": "3.11"
+}
