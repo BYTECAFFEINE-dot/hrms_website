@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+<h2>Mark Attendance</h2>
+
+<form method="post" action="/attendance">
+<select name="employee_id">
+{% for e in employees %}
+<option value="{{e.employee_id}}">
+{{e.full_name}}
+</option>
+{% endfor %}
+</select>
+
+<input type="date" name="date" required>
+
+<select name="status">
+<option>Present</option>
+<option>Absent</option>
+</select>
+
+<button>Save Attendance</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Attendance Records</h2>
+
+<table>
+<tr>
+<th>Employee</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+{% for a in attendance %}
+<tr>
+<td>{{a.employee_id}}</td>
+<td>{{a.date}}</td>
+<td>{{a.status}}</td>
+</tr>
+{% else %}
+<tr>
+<td colspan="3">No attendance records yet.</td>
+</tr>
+{% endfor %}
+</table>
+
+</div>
+
+{% endblock %}

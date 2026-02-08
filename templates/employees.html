@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+<h2>Add Employee</h2>
+
+<form method="post" action="/employees">
+<input name="employee_id" placeholder="Employee ID" required>
+<input name="full_name" placeholder="Full Name" required>
+<input name="email" placeholder="Email" required>
+<input name="department" placeholder="Department" required>
+<button>Add Employee</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Employee List</h2>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Department</th>
+<th>Action</th>
+</tr>
+
+{% for e in employees %}
+<tr>
+<td>{{e.employee_id}}</td>
+<td>{{e.full_name}}</td>
+<td>{{e.email}}</td>
+<td>{{e.department}}</td>
+<td>
+<a class="delete-btn" href="/delete/{{e.id}}">Delete</a>
+</td>
+</tr>
+{% else %}
+<tr>
+<td colspan="5">No employees added yet.</td>
+</tr>
+{% endfor %}
+</table>
+
+</div>
+
+{% endblock %}
