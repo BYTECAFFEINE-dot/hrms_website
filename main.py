@@ -31,8 +31,8 @@ from lib import models  # Import models to register them with Base
 # Create all database tables on startup
 Base.metadata.create_all(bind=engine)
 
-print("✓ Database initialized")
-print("✓ FastAPI app loaded")
+print("Database initialized")
+print("FastAPI app loaded")
 
 
 # ---------------------------------------------------------
@@ -56,11 +56,11 @@ if __name__ == "__main__":
     log_level = os.getenv("LOG_LEVEL", "info")
     
     print(f"\n{'='*60}")
-    print("🚀 HRMS Lite - HR Management System")
+    print("HRMS Lite - HR Management System")
     print(f"{'='*60}")
-    print(f"📍 Server: http://{host}:{port}")
-    print(f"📚 API Docs: http://{host}:{port}/docs")
-    print(f"⚙️  Reload: {'Enabled' if reload else 'Disabled'}")
+    print(f"Server: http://{host}:{port}")
+    print(f"API Docs: http://{host}:{port}/docs")
+    print(f"Reload: {'Enabled' if reload else 'Disabled'}")
     print(f"{'='*60}\n")
     
     # Run the Uvicorn server
